@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='author' content="Devin Lightfoot">
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <div id="controls">
+        <button onclick="reset()">Reset</button>
+
+    </div>
+    <script>
+        function getRand() {
+            var color = "";
+            for (var i = 0; i < 3; i++) {
+                var sub = Math.floor(Math.random() * 256).toString(16);
+                color += (sub.length == 1 ? "0" + sub : sub);
+            }
+            return "#" + color;
+        }
+        function reset() {
+            var container = document.querySelector("#container");
+            var size = prompt("How large would you like to make the grid?",
+                "Enter the side length you want");
+
+            while (container.firstChild) {
+                container.removeChild(container.lastChild);
+            }
+            for (i = 0; i < (size ** 2); i++) {
+                var temp = document.createElement("div");
+                container.appendChild(temp);
+                temp.classList.add('box');
+                temp.style.width = ((100 / size) - 0.5) + "%";
+                temp.style.height = ((100 / size) - 0.5) + "%";
+            }
+            var boxes = container.querySelectorAll("div");
+            boxes.forEach(box => {
+                box.addEventListener('mouseenter', e => {
+                    var color = getRand();
+                    box.style.backgroundColor = color;
+                })
+            });
+        }
+
+    </script>
+    <div id="container">
+
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>

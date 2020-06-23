@@ -1,0 +1,29 @@
+body{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: row;
+}
+#container{
+    display: flex;
+    border-style: solid;
+    border-color: red;
+    width: 100vw;
+    height: 96vh;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.box{
+    display: flex;
+}
+button{
+    font-size: 2.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(148, 148, 255);
+}
+.color{
+    background-color: black;
+}
